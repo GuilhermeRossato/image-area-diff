@@ -1,0 +1,37 @@
+{
+  "name": "image-area-diff",
+  "version": "0.9.0",
+  "description": "An efficient JavaScript library used to conditionally compare pixel-level areas in PNG images",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/test.js -t 100"
+  },
+  "dependencies": {
+    "pixelmatch": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-mourner": "^2.0.3",
+    "tap": "^11.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GuilhermeRossato/image-area-diff.git"
+  },
+  "keywords": [
+    "test",
+    "image",
+    "comparision",
+    "area",
+    "dif"
+  ],
+  "engines": {
+    "node": ">=5.5.1"
+  },
+  "author": "Guilherme Rossato <guilhermrossato@gmail.com> (https://github.com/GuilhermeRossato)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GuilhermeRossato/image-area-diff/issues"
+  },
+  "homepage": "https://github.com/GuilhermeRossato/image-area-diff#readme"
+}
