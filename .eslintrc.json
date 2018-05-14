@@ -1,0 +1,12 @@
+{
+	"extends": "strongloop",
+	"rules": {
+		"indent": [1, "tab"]
+	},
+	"env": {
+		"mocha": true
+	},
+	"plugins": [
+		"mocha"
+	]
+}
