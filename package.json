@@ -2,7 +2,7 @@
   "name": "image-area-diff",
   "version": "0.9.0",
   "description": "An efficient JavaScript library used to conditionally compare pixel-level areas in PNG images",
-  "main": "index.js",
+  "main": "image-area-diff.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore --fix .",
     "test": "mocha test --recursive"
