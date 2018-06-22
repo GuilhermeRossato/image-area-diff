@@ -1,6 +1,6 @@
 {
   "name": "image-area-diff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An efficient JavaScript library used to conditionally compare pixel-level areas in PNG images",
   "main": "image-area-diff.js",
   "scripts": {
