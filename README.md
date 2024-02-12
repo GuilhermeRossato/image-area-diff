@@ -9,7 +9,7 @@ Especially useful to filter 'dinamic' parts of screenshots and compare the rest.
 ### API / usage
 
 ```js
-var imageDiff = require('image-area-dif');
+var imageDiff = require('image-area-diff');
 
 imageDiff({
     "threshold": 0.1,
