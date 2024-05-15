@@ -1,28 +1,33 @@
-## image-area-diff
+## image-area-diff - Verify differences between PNG images by pixel color distance
 
 A simple and straightforward JavaScript module to compare images conditionally by areas. Works with PNG files only.
 
-Used to detect differences between image but not everywhere in the image, with this module you can configure which areas should trigger differences or not. Features whitelisting spaces that are supposed to be different and only mark differences in the other parts of the image.
+Used to detect differences between images in specific areas (whitelisting) or ignoring certain areas (blacklisting) by returning the sum of the color distance of all relevant pixels in the image, with this module you can configure which areas should be considered or ignored: whitelisting spaces that are supposed to be relevant and only counting differences in those parts of the image.
 
 Especially useful to filter 'dinamic' parts of screenshots and compare the rest.
 
 ### API / usage
 
 ```js
-var imageDiff = require('image-area-diff');
+const imageDiff = require('image-area-diff');
 
 imageDiff({
-    "threshold": 0.1,
-    "compare": ["old.png", "new.png"],
-    "output": "out.png",   // Optional, save difference to file
-    "whitelist": [   // Specify areas that can change freely and don't count pixel diferences
-        {left: 0, top: 0, width: 600, height: 100},   // whitelist the header of the image (left,top,width,height variant)
-        {left: 100, top: 100, right:400, bottom: 100},   // whitelist the center of the footer (left,top,right,bottom variant)
+    "threshold": 0.1, // Sensitivity between 0 and 1 (default 0.1)
+    "compare": ["old.png", "new.png"], // The source and target images
+    "output": "out.png",  // Optionally save the difference to file
+    "whitelist": [   // Specify areas that are relevant (default everything)
+        {left: 0, top: 0, width: 600, height: 100},   // whitelist by left,top,width,height
+        {left: 100, top: 100, right:400, bottom: 100},   // whitelist by left,top,right,bottom
         {x: 120, y: 125},   // whitelist a pixel (x,y variant)
         {x: 10, y: 130, radius: 10},   // whitelist a circular area (x,y,radius variant)
     ],
-    "includeAA": true, // Default to count antialiasing differences
-}).then(pixels => console.log("Difference in pixels: ",pixels));
+    "blacklist": [ // Specify areas that are ignored (default nothing)
+        {x: 0, y: 0} // Ignore a single pixel regardless of whitelist
+    ],
+    "includeAA": true, // Count antialiasing differences (default true)
+}).then(
+    pixels => console.log("Difference:", pixels)
+);
 ```
 
 ### Install
@@ -32,6 +37,8 @@ Install with NPM:
 ```bash
 npm install image-area-diff
 ```
+
+
 
 To build a binary executable version (after creating and testing your usage), use the API to configure the usage as you like, then:
 ```bash
